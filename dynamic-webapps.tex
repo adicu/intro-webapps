@@ -1,0 +1,58 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+
+\title{Building Dynamic Websites}
+\author{Howie Mao}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Clients and Servers}
+	\begin{itemize}
+		\item The web runs on a client-server model
+		\item A server is a program that listens on a network for requests
+			and services the requests. A webserver is a server that sends
+			webpages as its service.
+		\item A client is a program that requests services from the server.
+			Your web browser is an example of a client.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{How to write a server?}
+	\begin{itemize}
+		\item Server calls attaches itself to a port and starts listening 
+			for connections
+		\item Each computer has many ports (literally numbers from 1 to 65535) 
+			allowing internet traffic to be delivered to the correct
+			server even if there are multiple servers on the same computer
+		\item A client connects to a server by specifying its address and port
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What happens when I go to a website}
+	\begin{itemize}
+		\item Web browser (client) connects to webserver (usually on port 80)
+		\item Web browser sends an HTTP request, asking for a certain resource
+		\item Server sends an HTTP response, consisting of a header,
+			which contains metadata about the resource being sent, followed
+			by the data for the resource itself (a web page) in the body.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Web Frameworks}
+	\begin{itemize}
+		\item For making web applications, you probably want more than just
+			a socket library
+		\item You use a web framework, which provides you with the utilities
+			to deal with HTTP requests and other parts of a website
+		\item In this talk, we will use Flask, a very simple framework for Python
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Routing}
+\end{frame}
+
+\end{document}
