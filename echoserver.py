@@ -9,16 +9,19 @@ def run_server(port):
     sock.listen(5)
 
     print "Server listening on port %d" % port
-
-    while True:
-        client, addr = sock.accept()
-        print "Got connection from %s" % addr[0]
-        req = client.recv(CHUNK_SIZE)
-        while req:
-            client.send(req)
+    
+    try:
+        while True:
+            client, addr = sock.accept()
+            print "Got connection from %s" % addr[0]
             req = client.recv(CHUNK_SIZE)
-        client.close()
-    sock.close()
+            while req:
+                client.send(req)
+                req = client.recv(CHUNK_SIZE)
+            client.close()
+    except KeyboardInterrupt:
+        print "Got Ctrl-C, exiting"
+        sock.close()
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
