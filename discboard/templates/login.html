@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block body %}
+  {% if error %}
+    <p>Username or password was incorrect, please try again.</p>
+  {% endif %}
+  <form action="#" method="post">
+    <p>Username: <input type="text" name="username"/></p>
+    <p>Password: <input type="password" name="password"/></p>
+    <p><input type="submit" value="Submit"/></p>
+  </form>
+{% endblock %}

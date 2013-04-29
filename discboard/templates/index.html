@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Discussion Board {% endblock %}
+
+{% block body %}
+  <h1> Come discuss your thoughts </h1>
+  {% if not username %}
+    <p> <a href="/login">Log In</a> or <a href="/account/new">Create Account</a></p>
+  {% else %}
+    <p> Welcome, {{username}} </p>
+  {% endif %}
+  {% for post in posts %}
+    <div class="post">
+      <p><a href="/post/{{post.id}}">{{ post.title }}</a> 
+        by {{post.author.username}} </p>
+    </div>
+  {% endfor %}
+  <p> <a href="/post/new">New Post</a> </p>
+{% endblock %}
