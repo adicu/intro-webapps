@@ -52,7 +52,52 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Routing}
+\begin{frame}{Routing URLs}
+	\begin{itemize}
+		\item The key function of any web framework
+		\item Takes a URL and decides what code to run
+		\item Can also use parts of the URL as data
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Templating}
+	\begin{itemize}
+		\item Makes it easier to generate HTML (or anything else) using
+			changing data.
+		\item Key concepts are inheritance and substitution.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Databases}
+	\begin{itemize}
+		\item Allows for efficient storage and retrieval of user data.
+		\item Many different kinds of databases.
+		\item Relational, document-oriented, key-value, graph-based, etc.
+		\item Choice of database depends on type of data stored
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Sessions and Cookies}
+	\begin{itemize}
+		\item Allows users to stay "logged in".
+		\item Server sends browser a cookie, a piece of data which the browser
+			stores locally.
+		\item When the site is revisited, the cookie is sent back to the server.
+		\item This tells server the user is logged in already.
+		\item Cookies can be given an expiration time, or can be told to
+			expire once browser is closed.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Security}
+	\begin{itemize}
+		\item Encrypt cookies used to store login info
+		\item Login credentials and session cookies should be sent in 
+			HTTPS (encrypted HTTP).
+		\item Passwords should be hashed before storing in database.
+		\item Always escape user input before storing in a database or
+			putting in a template.
+	\end{itemize}
 \end{frame}
 
 \end{document}
