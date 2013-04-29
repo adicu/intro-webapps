@@ -36,6 +36,9 @@ def login():
         session['username'] = username
         return redirect('/')
 
+def current_user():
+    return User.query.filter_by(username=session['username']).first()
+
 @app.route('/post/new', methods=['GET', 'POST'])
 def create_post():
     if request.method == 'GET':
@@ -46,7 +49,7 @@ def create_post():
         title = request.form['title']
         text = request.form['text']
         post = Post(title, text)
-        user = User.query.filter_by(username=session['username']).first()
+        user = current_user()
         post.author_id = user.id
         db.session.add(post)
         db.session.commit()
@@ -56,3 +59,12 @@ def create_post():
 def show_post(post_id):
     post = Post.query.filter_by(id=post_id).first_or_404()
     return render_template('post.html', post=post)
+
+@app.route('/post/<int:post_id>/comment/new', methods=['POST'])
+def add_comment(post_id):
+    comment = Comment(request.form['text'])
+    comment.author_id = current_user().id
+    comment.post_id = post_id
+    db.session.add(comment)
+    db.session.commit()
+    return redirect('/post/' + str(post_id))

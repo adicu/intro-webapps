@@ -40,17 +40,15 @@ class Post(db.Model):
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), unique=True)
     text = db.Column(db.Text())
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     
-    def __init__(self, title, text):
-        self.title = title
+    def __init__(self, text):
         self.text = text
 
     def __repr__(self):
-        return '<Comment %r>' & self.title
+        return '<Comment %r>' & self.text
 
 def check_login(username, password):
     user = User.query.filter_by(username=username).first()

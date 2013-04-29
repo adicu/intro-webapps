@@ -4,4 +4,19 @@
 <h1> {{post.title}} </h1>
 <h2> {{post.author.username}} </h2>
 <p> {{post.text}} </p>
+{% block comments %}
+  <div id="comments">
+    {% for comment in post.comments %}
+      <div class="comment">
+        <h3>{{comment.author.username}}</h3>
+        <p>{{comment.text}}</p>
+      </div>
+    {% endfor %}
+    <h3>Your Comment</h3>
+    <form method="post" action="/post/{{post.id}}/comment/new">
+      <p><textarea name="text"></textarea></p>
+      <p><input type="submit" value="Comment"/></p>
+    </form>
+  </div>
+{% endblock %}
 {% endblock body %}
