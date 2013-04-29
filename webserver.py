@@ -18,6 +18,8 @@ def serve_page(client):
     topline = req.split('\n')[0]
     topline = topline.strip()
     url = topline.split(' ')[1]
+    if url == '/':
+        url = '/index.html'
     fname = os.path.join(os.getcwd(), url[1:])
     _, ext = os.path.splitext(fname)
     mime = EXT2MIME.get(ext, 'application/octet-stream')
