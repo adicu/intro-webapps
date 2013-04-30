@@ -1,0 +1,21 @@
+.post {
+	margin: 10px;
+	padding: 5px;
+	background-color: #A9F5F2;
+}
+
+#post-body {
+	background-color: #F5F6CE;
+	padding: 5px;
+}
+
+#comments {
+	background-color: #F5F6CE;
+	margin: 10px;
+	padding: 10px;
+}
+
+.comment {
+	padding: 5px;
+	background-color: #A9F5F2;
+}
